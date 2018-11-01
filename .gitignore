@@ -13,6 +13,7 @@
 *.userprefs
 
 # ConfigurationFiles
+upbTechSite/appsettings.json
 appsettings.json
 
 # Build results
