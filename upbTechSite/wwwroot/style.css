@@ -1,0 +1,466 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url(fonts/OpenSans-Regular.ttf);
+}
+@font-face {
+  font-family: "PT Sans";
+  src: url(fonts/PT_Sans-Web-Regular.ttf);
+}
+@font-face {
+  font-family: "Scada";
+  src: url(fonts/Scada-Regular.ttf);
+}
+@font-face {
+  font-family: "Ubuntu Condensed";
+  src: url(fonts/UbuntuCondensed-Regular.ttf);
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  src: url(fonts/RobotoCondensed-Regular.ttf);
+}
+body {
+  margin: 0;
+  background-color: #F8F8F8;
+  color: #343333;
+}
+body .banner-block__text-section {
+  color: #FFF;
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.font_open-sans {
+  font-family: "Open Sans", sans-serif;
+}
+
+.h1 {
+  font-size: 210%;
+  font-weight: bold;
+}
+
+.h2 {
+  font-size: 300%;
+  text-transform: uppercase;
+  padding: 0 10px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.h3 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.info-block,
+.services,
+.projects,
+.clients,
+.contacts {
+  padding-top: 120px;
+}
+
+p {
+  margin: 0;
+}
+
+/*----------- header  --------------*/
+.header__logo-img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.navbar-default {
+  background-color: #FFF;
+  border-bottom: 1px solid #343333;
+  font-family: "Ubuntu Condensed", "Arial", sans-serif;
+  text-transform: uppercase;
+  font-size: 150%;
+}
+
+.navbar-default .navbar-nav > li > .nav-link:hover {
+  color: #2D753A;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  border-bottom: 2px solid #2D753A;
+  color: #343333;
+}
+
+.navbar-default .navbar-nav > :not(.active) > a {
+  opacity: 0.8;
+}
+
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: #FFF;
+}
+
+.navbar-default .navbar-nav > .active > a:visited {
+  background-color: #FFF;
+}
+
+.navbar-default .navbar-nav > li > a:focus {
+  color: #343333;
+}
+
+/*------------ banner-block -------------------*/
+.banner-block {
+  height: 100vh;
+  padding-top: 15vh;
+}
+
+.banner-block_theme_desktop {
+  background-image: url(img/back42.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.banner-block__text-section {
+  font-family: "PT Sans", sans-serif;
+}
+
+.banner-block__title {
+  text-transform: uppercase;
+}
+
+.banner-block__article {
+  font-size: 140%;
+  padding: 50px 15px 0;
+}
+
+.banner-block__button {
+  padding-top: 50px;
+}
+
+.button-more {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 2px;
+  background-color: rgba(175, 219, 3, 0.75);
+  transform: scale(1);
+  font-family: "Scada", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition-property: transform, background-color;
+  transition-duration: 0.5s;
+}
+
+.button-more:hover {
+  transform: scale(1.1);
+  background-color: #afdb03;
+}
+
+/*--------- info-block -------------*/
+.info-block__text-section {
+  text-indent: 2ch;
+  font-size: 140%;
+  padding: 30px 15px;
+}
+
+.row-title {
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/*-------------- services-block ----------------*/
+.item__desc {
+  margin-top: 20px;
+  font-size: 140%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.item__img_200 {
+  width: 200px;
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 0.5s;
+}
+
+.item__img_200:hover {
+  transform: scale(1.1);
+}
+
+/*-------------- projects-block ----------------*/
+.projects__article {
+  font-size: 140%;
+  font-family: "Open Sans", sans-serif;
+}
+
+.projects__article p {
+  padding: 0 15px;
+}
+
+.projects__img {
+  border: 1px solid #D4D4D4;
+}
+
+.projects__item-img {
+  padding: 20px 0;
+}
+
+.projects__item-content {
+  font-size: 140%;
+  text-align: justify;
+}
+
+.projects__item-title {
+  padding: 0 10%;
+  text-indent: 2ch;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.projects__item-desc {
+  padding: 20px 10%;
+  font-family: "Open Sans", sans-serif;
+  text-indent: 2ch;
+}
+
+.item-row {
+  margin: 50px 0;
+  padding: 0 0 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+/*-------------- clients-block ---------------*/
+.clients__title {
+  margin-bottom: 90px;
+}
+
+.clients__img {
+  min-height: 109px !important;
+}
+
+.clients__img_250 {
+  width: 250px;
+}
+
+.clients__img_200 {
+  width: 200px;
+}
+
+.clients__img_200,
+.clients__img_250 {
+  transform: scale(1);
+  transition-property: transform;
+  transition-duration: 0.5s;
+  margin: 20px;
+}
+
+.clients__img_200:hover,
+.clients__img_250:hover {
+  transform: scale(1.1);
+}
+
+.last-img {
+  margin-top: 40px;
+}
+
+/*------------- contacts -------------*/
+.contacts__info {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.contacts__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.contacts__link:hover {
+  color: inherit;
+}
+
+.contacts__map {
+  margin-bottom: 30px;
+}
+
+.form-input {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.form-input:focus {
+  border: 1px solid #000;
+}
+
+.sent-form-message {
+  display: none;
+  margin-top: 50px;
+}
+
+iframe {
+  background-color: lightgrey;
+}
+
+/*----------- footer -------------*/
+.footer {
+  background-color: #FFF;
+  border-top: 1px solid #4F4D4D;
+}
+
+.footer-row {
+  padding: 20px;
+}
+
+@media only screen and (min-width: 1200px) {
+  .wrapper {
+    width: 1200px;
+  }
+
+  .logo-bank {
+    margin: 30% auto;
+  }
+
+  .projects__img {
+    width: 450px;
+  }
+
+  .header__logo-img {
+    height: 50px;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  .wrapper {
+    width: 900px;
+  }
+
+  .logo-bank {
+    margin: 30% auto;
+  }
+
+  .projects__img {
+    width: 350px;
+  }
+
+  .header__logo-img {
+    height: 50px;
+  }
+}
+@media only screen and (min-width: 760px) and (max-width: 992px) {
+  .wrapper {
+    width: 650px;
+  }
+
+  .container-fluid {
+    font-size: 90%;
+  }
+
+  .logo-bank {
+    margin: 10% auto;
+  }
+
+  .projects__item-img {
+    text-align: center;
+  }
+
+  .projects__item-content {
+    text-align: justify;
+  }
+
+  .projects__item-title {
+    text-align: center;
+  }
+
+  .projects__img {
+    width: 450px;
+  }
+
+  .header__logo-img {
+    height: 30px;
+    margin: 10px 0;
+  }
+
+  .nav li a {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+@media only screen and (min-width: 760px) and (max-width: 992px) and (orientation: landscape) {
+  .h1 {
+    font-size: 180%;
+  }
+
+  .banner-block__article {
+    padding-top: 10px;
+  }
+}
+@media only screen and (max-width: 760px) {
+  .container-fluid {
+    font-size: 80%;
+  }
+
+  .wrapper {
+    padding: 0 15px;
+  }
+
+  .h1 {
+    font-size: 170%;
+  }
+
+  .banner-block__article {
+    font-size: 140%;
+    padding: 0 15px 0;
+  }
+
+  .logo-bank {
+    margin: 10% auto;
+  }
+
+  .projects__item-img {
+    text-align: center;
+  }
+
+  .projects__item-title {
+    text-align: center;
+  }
+
+  .projects__item-content {
+    text-align: justify;
+  }
+
+  .projects__img {
+    width: 80vw;
+  }
+
+  .header__logo-img {
+    height: 30px;
+    margin: 10px 0;
+  }
+
+  .info-block,
+.services,
+.projects,
+.clients,
+.contacts {
+    padding-top: 50px;
+  }
+
+  .row-title {
+    margin-bottom: 0;
+  }
+}
+@media only screen and (max-height: 570px) {
+  .banner-block__button {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
