@@ -22,29 +22,26 @@ namespace upbTechSite.Controllers
 
 		[HttpPost]
 		[ActionName("sendmessage")]
-		public IActionResult SendMessage()
+		public async Task<IActionResult> SendMessage()
 		{
 			try
 			{
-				SmtpClient client = new SmtpClient("smtp.test", 25)
+				SmtpClient client = new SmtpClient(Startup.Configuration.GetSection("SmtpSettings:Host").Value.ToString(),
+													25)
 				{
-					Credentials = new NetworkCredential("login", "pass"),
+					Credentials = new NetworkCredential(Startup.Configuration.GetSection("SmtpSettings:Credentials:Login").Value.ToString(),
+														Startup.Configuration.GetSection("SmtpSettings:Credentials:Password").Value.ToString()),
 				};
 
-				MailAddress from = new MailAddress("info@upb-tech.ru", "УРАЛПРОМТЕХ. Форма обратной связи upb-tech.ru");
-				MailAddress to = new MailAddress("recepient@test.com");
+				MailMessage message = EmailMessageFactory.CreateMessage("Тестовое сообщение от домена upb-tech.ru");
 
-				MailMessage message = new MailMessage(from, to)
+				client.SendCompleted += ((s, e) => 
 				{
-					Subject = "Сообщение от посетителя upb-tech.ru",
-					Body = "Тестовое сообщение от домена upb-tech.ru",
-					BodyEncoding = System.Text.Encoding.UTF8
-				};
+					message.Dispose();
+					client.Dispose();
+				});
 
-				client.Send(message);
-
-				message.Dispose();
-				client.Dispose();
+				await client.SendMailAsync(message);
 			}
 			catch (Exception)
 			{
