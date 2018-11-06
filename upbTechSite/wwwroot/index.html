@@ -49,26 +49,23 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('.feedback').submit(function(event) {      
-            var dataToSend = $(this).serialize();                   
+            $('.feedback').submit(function(event) {
+            event.preventDefault();
+            var dataToSend = $(this).serialize();
                 $.ajax({
                     url: '/home/sendmessage',
                     type: 'POST',
                     dataType: 'json',
                     data: JSON.stringify(dataToSend),
                     success: function(data) {
-                        alert(data);
+                        $('.sent-form-message').html(data);
                     }
                 })
                 .done(function() {
                     $('.sent-form-message').fadeIn(1000);
                     $(this).find('input').val('');
                     $('.feedback').trigger('reset');
-                })
-                .fail(function() {
-                    alert("error");
                 });
-                event.preventDefault();
             });
         });
     </script>
@@ -336,7 +333,6 @@
                             <button class="button-more" id="send-form" type="submit">Отправить</button>
                         </form>
                         <div class="sent-form-message text-center">
-                            <p>Ваше сообщение успешно отправлено.</p>
                         </div>
                             <div class="contacts__info row">
                                 <div class=" contacts__address col-lg-6 col-md-6 col-sm-6 col-xs-6">
