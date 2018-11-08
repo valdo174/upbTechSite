@@ -22,8 +22,10 @@ namespace upbTechSite.Controllers
 
 		[HttpPost]
 		[ActionName("sendmessage")]
-		public async Task<IActionResult> SendMessage()
+		public async Task<IActionResult> SendMessage([FromForm] UsersMessage usersMessage)
 		{
+			if (usersMessage == null) return Json("Ошибка при отправке электронного письма");
+
 			try
 			{
 				SmtpClient client = new SmtpClient(Startup.Configuration.GetSection("SmtpSettings:Host").Value.ToString(),
@@ -33,7 +35,7 @@ namespace upbTechSite.Controllers
 														Startup.Configuration.GetSection("SmtpSettings:Credentials:Password").Value.ToString()),
 				};
 
-				MailMessage message = EmailMessageFactory.CreateMessage("Тестовое сообщение от домена upb-tech.ru");
+				MailMessage message = EmailMessageFactory.CreateMessage(usersMessage.ToString());
 
 				client.SendCompleted += ((s, e) => 
 				{
