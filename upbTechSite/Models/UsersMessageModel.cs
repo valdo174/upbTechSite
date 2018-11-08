@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace upbTechSite.Models
 {
-	public class UsersMessage
+	public class UsersMessageModel
 	{
 		public string Name { get; set; }
 
@@ -16,18 +16,6 @@ namespace upbTechSite.Models
 		public string Phone { get; set; }
 
 		public string Message { get; set; }
-
-		public UsersMessage()
-		{ }
-
-		public UsersMessage(string name, string company, string email, string phone, string message)
-		{
-			Name = name;
-			Company = company;
-			Email = email;
-			Phone = phone;
-			Message = message;
-		}
 
 		public override string ToString()
 		{

@@ -50,12 +50,20 @@
     <script type="text/javascript">
         $(document).ready(function() {
             $('.feedback').submit(function(event) {
-            event.preventDefault();
-            var dataToSend = $(this).serialize();
+                event.preventDefault();
+
+                var dataToSend = {
+                    Name: $('#name').val(),
+                    Company: $('#company').val(),
+                    Email: $('#email').val(),
+                    Phone: $('#telephone').val(),
+                    Message: $('#message').val()
+                };
+
                 $.ajax({
                     url: '/home/sendmessage',
                     type: 'POST',
-                    dataType: 'json',
+                    contentType: 'application/json',
                     data: JSON.stringify(dataToSend),
                     success: function(data) {
                         $('.sent-form-message').html(data);

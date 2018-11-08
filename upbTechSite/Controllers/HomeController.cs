@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using upbTechSite.Models;
 
@@ -22,7 +23,7 @@ namespace upbTechSite.Controllers
 
 		[HttpPost]
 		[ActionName("sendmessage")]
-		public async Task<IActionResult> SendMessage([FromForm] UsersMessage usersMessage)
+		public async Task<IActionResult> SendMessage([FromBody] UsersMessageModel usersMessage)
 		{
 			if (usersMessage == null) return Json("Ошибка при отправке электронного письма");
 
