@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
+using NLog.Web;
 
 namespace upbTechSite
 {
@@ -31,8 +34,10 @@ namespace upbTechSite
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 		}
 
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 		{
+			loggerFactory.AddNLog();
+
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -51,6 +56,8 @@ namespace upbTechSite
 					name: "default",
 					template: "{controller=Home}/{action=Index}");
 			});
+
+			env.ConfigureNLog("nlog.config");
 
 			var configBuilder = new ConfigurationBuilder()
 				.SetBasePath(env.ContentRootPath)

@@ -10,11 +10,20 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using upbTechSite.Models;
+using NLog;
+using Microsoft.Extensions.Logging;
 
 namespace upbTechSite.Controllers
 {
 	public class HomeController : Controller
 	{
+		protected readonly ILogger<HomeController> _logger;
+
+		public HomeController(ILogger<HomeController> logger)
+		{
+			if (logger != null) _logger = logger;
+		}
+
 		[HttpGet]
 		public IActionResult Index()
 		{
@@ -46,12 +55,14 @@ namespace upbTechSite.Controllers
 
 				await client.SendMailAsync(message);
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
+				_logger.LogError(ex.Message);
 				return Json("Ошибка при отправке электронного письма");
 			}
 
-			return Json("Сообщение успешно доставлено");
+			_logger.LogInformation($"Сообщение от {usersMessage.Name} усешно отправлено");
+			return Json("Сообщение успешно отправлено");
 		}
 
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
